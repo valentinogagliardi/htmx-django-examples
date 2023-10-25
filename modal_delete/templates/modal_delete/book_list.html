@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="list">
+        {% for book in object_list %}
+            <dialog data-id="dialog-confirm">
+                <article>
+                    <header>
+                        <h6>Are you sure you want to delete the book?</h6>
+                    </header>
+                    <form hx-delete="{% url "modal_delete:delete" pk=book.pk %}"
+                          hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+                        <button type="submit">
+                            Yes, delete
+                        </button>
+                        <button autofocus data-dismiss type="button">
+                            No, take me back
+                        </button>
+                    </form>
+                </article>
+            </dialog>
+            <div class="flex"><p>{{ book }}</p>
+                <button data-id="{{ book.pk }}">Delete</button>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        const dialog = document.querySelector("dialog[data-id='dialog-confirm']");
+
+        document.querySelector(".list").addEventListener("click", (evt) => {
+            if ('dataset' in evt.target && evt.target.dataset["id"]) {
+                return dialog.showModal();
+            }
+        });
+
+        document.querySelector("button[data-dismiss]").addEventListener('click', function () {
+            dialog.close();
+        });
+    </script>
+{% endblock %}

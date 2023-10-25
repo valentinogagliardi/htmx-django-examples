@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('date-range/', include('date_range.urls')),
+    path('modal-delete/', include('modal_delete.urls')),
 ]
