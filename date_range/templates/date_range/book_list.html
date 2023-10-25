@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="list">
+        {% include "date_range/book_list_partial.html" %}
+    </div>
+    {% if filter %}
+        <form hx-get="" hx-target=".list">
+            {{ filter.form.as_p }}
+            <button type="submit">Apply filters</button>
+        </form>
+    {% endif %}
+{% endblock %}

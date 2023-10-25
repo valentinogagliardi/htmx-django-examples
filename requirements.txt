@@ -9,7 +9,10 @@ asgiref==3.7.2
 django==4.2.6
     # via
     #   -r requirements.in
+    #   django-filter
     #   django-htmx
+django-filter==23.3
+    # via -r requirements.in
 django-htmx==1.17.0
     # via -r requirements.in
 sqlparse==0.4.4
