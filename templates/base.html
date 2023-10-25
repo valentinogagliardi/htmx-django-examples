@@ -5,10 +5,18 @@
 <head>
     <meta charset="UTF-8">
     <title>htmx in Django by examples</title>
+    <style>
+
+        .flex {
+            display: flex;
+            gap: 1em;
+        }
+    </style>
 </head>
 <body>
 {% block content %}
 {% endblock %}
 <script src="{% static 'js/htmx.min.js' %}" defer></script>
 </body>
+{% block js %}{% endblock %}
 </html>

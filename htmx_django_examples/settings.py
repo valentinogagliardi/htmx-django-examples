@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_htmx',
     'django_filters',
-    'date_range.apps.DateRangeConfig'
+    'date_range.apps.DateRangeConfig',
+    'modal_delete.apps.ModalDeleteConfig'
 ]
 
 MIDDLEWARE = [
